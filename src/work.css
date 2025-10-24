@@ -1,0 +1,63 @@
+/* inherit your base theme: fonts, buttons, header height var, etc. */
+:root { --header-h: 88px; }
+
+.work { background: #0f4f73; /* deep blue like pic2; tweak to your theme */ min-height: 100vh; }
+.site-header {
+  position: sticky; top:0; z-index:50;
+  display:grid; grid-template-columns: 1fr auto auto; align-items:center; gap:16px;
+  height: var(--header-h); padding: 0 20px; background: #fff; border-bottom: 1px solid #eee;
+}
+.brand { font-weight: 700; color: #111; text-decoration: none; }
+.nav { display:flex; gap:24px; }
+.nav-link { color:#111; opacity:.85; text-decoration:none; }
+.nav-link:hover { opacity:1; }
+.btn.learn-more { background:#4a6b35; color:#fff; border-radius:999px; padding:10px 16px; text-decoration:none; }
+
+/* layout */
+.work__container {
+  width: min(1200px, 94vw);
+  margin: 0 auto;
+  padding: 32px 0 64px;
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;  /* left text / right grid */
+  gap: 28px;
+}
+@media (max-width: 1024px){ .work__container { grid-template-columns: 1fr; } }
+
+.kicker { letter-spacing: .18em; color: #cfe5f5; text-transform: uppercase; font-size: 12px; margin: 8px 0; }
+.work__title { color:#fff; font-size: clamp(34px, 6vw, 60px); line-height:1.1; margin: 6px 0 12px; }
+.work__lead { color: #e2eef7; max-width: 58ch; }
+
+/* grid of 10 tiles */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+}
+@media (max-width: 560px){ .grid { grid-template-columns: 1fr; } }
+
+.tile {
+  position: relative; border-radius: 20px; overflow: hidden;
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(2px);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08), 0 10px 30px rgba(0,0,0,.2);
+  aspect-ratio: 16 / 9;                  /* same shape as pic2 */
+}
+.tile img {
+  width: 100%; height: 100%; object-fit: cover; display:block;
+  transition: transform .35s ease;
+}
+.tile::after {                            /* darken on hover */
+  content:""; position:absolute; inset:0;
+  background: rgba(0,0,0,.25); opacity: 0; transition: opacity .25s ease;
+}
+.tile__label {
+  position: absolute; left: 24px; bottom: 20px;
+  color: #fff; font-size: clamp(18px, 2vw, 28px); font-weight: 600;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity .25s ease, transform .25s ease;
+  text-shadow: 0 2px 12px rgba(0,0,0,.35);
+}
+.tile:hover img { transform: scale(1.04); }
+.tile:hover::after { opacity: 1; }
+.tile:hover .tile__label { opacity: 1; transform: translateY(0); }

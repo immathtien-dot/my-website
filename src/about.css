@@ -1,0 +1,128 @@
+/* global */
+:root { --header-h: 88px; }          /* adjust to your real header height */
+html { scroll-behavior: smooth; }
+* { box-sizing: border-box; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  display: grid; grid-template-columns: 1fr auto auto;
+  align-items: center; gap: 16px;
+  height: var(--header-h);
+  padding: 0 20px; background: #fff; border-bottom: 1px solid #eee;
+}
+.brand { font-weight: 600; }
+.nav { display: flex; gap: 24px; }
+.nav-link { text-decoration: none; color: #111; opacity: .85; }
+.nav-link:hover { opacity: 1; }
+.btn.learn-more {
+  display: inline-block; padding: 10px 16px; border-radius: 999px;
+  background: #4a6b35; color: #fff; text-decoration: none;
+}
+
+.hero { padding: 80px 20px 40px; text-align: center; }
+
+/* anchor offset so header doesn't cover the title */
+.section { scroll-margin-top: var(--header-h); }
+
+/* ABOUT */
+.about { background:#fff; padding: 40px 0 80px; }
+.about__container { width: min(1200px, 95vw); margin: 0 auto; }
+.about__kicker { font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#6b7a6b; margin-bottom:10px; }
+.about__kicker span { color:#2f3e2f; }
+.about__title { font-size: clamp(32px, 5vw, 56px); line-height:1.1; font-weight:700; margin:6px 0 12px; }
+.about__lead { 
+  color:#4b4b4b; 
+  max-width: 100%;
+  margin-bottom: 32px;
+  line-height: 1.6;
+  font-size: 16px;
+}
+.about__rule { border:0; border-top:1px solid #e8ece8; margin:16px 0 18px; }
+
+.about__grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin:14px 0 36px; }
+@media (max-width:900px){ .about__grid{ grid-template-columns:repeat(2,1fr);} }
+@media (max-width:560px){ .about__grid{ grid-template-columns:1fr;} }
+
+.card__icon { font-size:20px; margin-bottom:8px; }
+.card h3 { font-size:16px; margin:0 0 6px; }
+.card p { font-size:14px; color:#565; }
+
+.about__image img {
+  width:100%; display:block; border-radius:24px;
+  box-shadow:0 8px 28px rgba(0,0,0,.12);
+}
+/* Ẩn mọi khả năng của hàng title thứ 2 */
+#secondaryNav,
+.bottom-nav,
+.section-tabs,
+.sticky-subnav {
+  display: none !important;
+}
+
+/* ——— Projects layout ——— */
+.projects { background:#fff; padding: 64px 0 96px; }
+.projects__container {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 36px;
+}
+@media (max-width: 900px){
+  .projects__container { grid-template-columns: 1fr; }
+}
+
+.projects__title {
+  font-size: clamp(28px, 4.5vw, 48px);
+  line-height: 1.1; margin: 0 0 10px;
+}
+.projects__lead { color:#666; margin: 0 0 18px; }
+
+.projects__list { list-style: none; padding: 0; margin: 16px 0 22px; }
+.projects__list li {
+  display: grid; grid-template-columns: 36px 1fr; align-items: start;
+  gap: 12px; padding: 14px 0; border-top: 1px solid #e9ece9;
+}
+.projects__list li:last-child { border-bottom: 1px solid #e9ece9; }
+.projects__list li span { color:#6b7a6b; font-weight: 600; }
+
+.btn-ghost {
+  display:inline-block; padding:10px 16px; border-radius: 999px;
+  background:#e7f0dd; color:#2a3b21; text-decoration:none;
+}
+
+/* ——— Image card with hover fade ——— */
+.projects__right { align-self: start; }
+.image-card {
+  position: relative; overflow: hidden; border-radius: 24px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.12);
+}
+.image-card img { display:block; width:100%; height:auto; }
+
+/* overlay fades in when hovering the card */
+.overlay {
+  position:absolute; inset:0; pointer-events:none;
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(0,0,0,0); transition: background .25s ease, opacity .25s ease;
+}
+.overlay__box {
+  opacity:0; transform: translateY(6px);
+  background: rgba(255,255,255,.88); color:#222;
+  padding:14px 16px; border-radius: 12px;
+  transition: opacity .25s ease, transform .25s ease;
+  font-weight: 600;
+}
+.image-card:hover .overlay { background: rgba(0,0,0,.08); }
+.image-card:hover .overlay__box { opacity:1; transform: translateY(0); }
+
+/* next button “>” */
+.next-btn {
+  position:absolute; right:12px; bottom:12px;
+  width:42px; height:42px; border-radius:999px; border:none;
+  background:#2f4a22; color:#fff; font-size:20px; cursor:pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,.22);
+}
+.next-btn:hover { opacity:.95; transform: translateY(-1px); }
+
+/* caption under image */
+.caption { margin: 10px 6px 0; color:#444; font-size: 14px; }

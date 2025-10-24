@@ -1,0 +1,128 @@
+/* Section layout */
+.contact { 
+  background: #8aa077;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+.contact__container { 
+  width: min(1200px, 92vw); 
+  margin: 0 auto; 
+}
+
+/* 2 dòng chạy ngược chiều nhau */
+.marquee {
+  position: relative; 
+  overflow: hidden; 
+  white-space: nowrap;
+  user-select: none; 
+  -webkit-user-select: none;
+  margin: 20px 0;
+}
+.marquee__inner {
+  display: inline-flex; 
+  gap: var(--gap, 2em); 
+  padding: 16px 0;
+  will-change: transform;
+  animation: marquee-left var(--speed, 30s) linear infinite;
+}
+.marquee--reverse .marquee__inner {
+  animation-name: marquee-right;
+}
+
+/* pause on hover */
+.marquee:hover .marquee__inner { 
+  animation-play-state: paused; 
+}
+
+/* items - basic style only */
+.marquee__item {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  font-size: var(--size, 3.5rem);
+  color: #FFFFFF;
+}
+
+/* Connect with me section */
+.contact__connect {
+  text-align: center;
+  padding: 80px 0 40px;
+  background: #FFFFFF;
+  margin-top: 40px;
+}
+
+.contact__title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+}
+
+.contact__description {
+  font-size: 1.125rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 40px 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact__cta {
+  display: inline-block;
+  background: #4d7c0f;
+  color: #FFFFFF;
+  padding: 16px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.contact__cta:hover {
+  background: #3d6a0a;
+  transform: translateY(-2px);
+}
+
+/* keyframes */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } /* vì ta lặp 2 lần nội dung */
+}
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) { 
+  .marquee__item { 
+    font-size: 2.5rem; 
+  } 
+}
+@media (max-width: 768px) { 
+  .marquee__item { 
+    font-size: 2rem; 
+  } 
+}
+@media (max-width: 640px) { 
+  .marquee__item { 
+    font-size: 1.5rem; 
+  } 
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__inner { 
+    animation: none !important; 
+  }
+}
+
+/* Anchor offset để header không che */
+:root { --header-h: 88px; }
+.section { scroll-margin-top: var(--header-h); }

@@ -1,0 +1,122 @@
+/*
+  animation.css – Custom animation library for your Area‑style landing page
+  How to use:
+  1. Link this file in <head>: <link rel="stylesheet" href="animation.css" />
+  2. Add classes like .fade-in, .slide-up, .zoom-in to elements.
+*/
+
+:root {
+    --animate-speed-slow: 1.5s;
+    --animate-speed: 0.8s;
+    --animate-speed-fast: 0.4s;
+    --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* --- Fade In --- */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeIn var(--animate-speed) var(--ease-default) forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* --- Slide Up --- */
+  .slide-up {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUp var(--animate-speed-slow) var(--ease-default) forwards;
+  }
+  
+  @keyframes slideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* --- Slide In Left --- */
+  .slide-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    animation: slideLeft var(--animate-speed) var(--ease-default) forwards;
+  }
+  
+  @keyframes slideLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* --- Zoom In --- */
+  .zoom-in {
+    opacity: 0;
+    transform: scale(0.9);
+    animation: zoomIn var(--animate-speed-fast) var(--ease-default) forwards;
+  }
+  
+  @keyframes zoomIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* --- Delay utility classes --- */
+  .delay-1 { animation-delay: 0.3s; }
+  .delay-2 { animation-delay: 0.6s; }
+  .delay-3 { animation-delay: 0.9s; }
+  
+  /* --- Continuous Floating Animation --- */
+  .float {
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  
+  /* --- Hover Animations --- */
+  .hover-bounce:hover {
+    animation: hoverBounce 0.6s var(--ease-default);
+  }
+  
+  @keyframes hoverBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  
+  .hover-glow:hover {
+    filter: drop-shadow(0 0 10px rgba(255,255,255,.4));
+    transform: scale(1.02);
+    transition: all .3s ease;
+  }
+  
+  /* --- Example usage:
+     <h1 class="title fade-in delay-2">Browse everything.</h1>
+     <a class="cta slide-up delay-3" href="#learn">Learn More →</a>
+  --- */
+  

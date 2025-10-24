@@ -1,0 +1,236 @@
+/* Projects Section Styles */
+.projects {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.projects__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.projects__left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.projects__subtitle {
+  font-size: 12px;
+  font-weight: 400;
+  color: #6b7a6b;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 0 0 10px 0;
+}
+
+.projects__subtitle span {
+  color: #4d7c0f;
+  font-weight: 700;
+}
+
+.projects__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.projects__lead {
+  font-size: 1.125rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.projects__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+.projects__right {
+  position: relative;
+}
+
+.projects__gallery {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.projects__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Image Card Gallery Styles */
+#projects-gallery {
+  position: relative;
+}
+
+.image-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.image-card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.image-card:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay__box {
+  background: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.overlay__box p {
+  margin: 0;
+  color: #333;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.next-btn {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.image-card:hover .next-btn {
+  opacity: 1;
+}
+
+.next-btn:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.caption {
+  margin-top: 16px;
+  font-size: 0.875rem;
+  color: #666;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .projects__container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .projects__title {
+    font-size: 2rem;
+  }
+  
+  .image-card img {
+    height: 300px;
+  }
+}
+.projects__list .row{
+  position: relative;
+  padding: 16px 0;
+  border-top: 1px solid #e9ece9;
+  margin-left: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.projects__list .row:last-child{ border-bottom:1px solid #e9ece9; }
+
+.projects__list .num{
+  display:grid; place-items:center;
+  width:28px; height:28px; border-radius:999px;
+  background:#6b844e; color:#fff; font-weight:600; font-size:12px;
+}
+.projects__list .row__dot {
+  width: 8px;
+  height: 8px;
+  background: #4d7c0f;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.projects__list .row__text{ 
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  flex: 1;
+}
+
+.stretched-link{
+  position:absolute; inset:0;
+  text-decoration:none; color:inherit;
+}
+
+.row.is-link{ cursor:pointer; }
+.row.is-link::before{
+  content:""; position:absolute; inset:0; border-radius:10px;
+  background: rgba(0,0,0,0); transition: background .18s;
+}
+.row.is-link:hover::before{ background: rgba(0,0,0,0.03); }
+
+.chev{
+  opacity:0; transform: translateX(-4px);
+  transition: opacity .18s, transform .18s;
+  color:#6b844e; font-size:18px; font-weight:600;
+}
+.row.is-link:hover .chev{ opacity:1; transform: translateX(0); }
