@@ -209,11 +209,30 @@
   flex-shrink: 0;
 }
 
-.projects__list .row__text{ 
+.projects__list .row__text{
   color: #333;
   font-size: 16px;
   font-weight: 400;
   flex: 1;
+}
+
+/* Link styles */
+.projects__list .row.is-link {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.projects__list .row.is-link:hover {
+  background-color: rgba(77, 124, 15, 0.05);
+}
+
+.stretched-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .stretched-link{

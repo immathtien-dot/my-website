@@ -7,11 +7,10 @@ import { Link } from "react-router-dom"; // make sure router is installed
 type ProjectRow = { num: string; label: string; slug?: string };
 
 const projectRows: ProjectRow[] = [
-  { num: "01", label: "Animation", slug: "animation" },
-  { num: "02", label: "Video Editing", slug: "music-video" },
-  { num: "03", label: "Coding", slug: "vfx" },
-  { num: "04", label: "Graphic Design" , slug: "graphic-design" },
-
+  { num: "01", label: "Animation", slug: "projects" },
+  { num: "02", label: "Video Editing", slug: "projects" },
+  { num: "03", label: "Coding", slug: "projects" },
+  { num: "04", label: "Graphic Design", slug: "projects" },
 ];
 
 <nav id="mainNav" className="nav">
@@ -91,7 +90,7 @@ function ContactSection() {
             Schedule a quick call to learn how Area can turn your regional data into a powerful advantage.
           </p>
           <a className="contact__cta" href="#contact">
-            Learn More →
+            Say Hello →
           </a>
         </div>
       </div>
@@ -227,24 +226,23 @@ export default function App() {
             </p>
 
             <ul className="projects__list">
-  {projectRows.map((p) => (
-    <li key={p.num} className={`row ${p.slug ? "is-link" : ""}`}>
-      <div className="row__dot"></div>
-      <span className="row__text">{p.label}</span>
+              {projectRows.map((p) => (
+                <li key={p.num} className={`row ${p.slug ? "is-link" : ""}`}>
+                  <div className="row__dot"></div>
+                  <span className="row__text">{p.label}</span>
 
-      {p.slug && (
-        <Link
-          to={`/work/${p.slug}`}
-          className="stretched-link"
-          aria-label={`Open ${p.label}`}
-        />
-      )}
+                  {p.slug && (
+                    <Link
+                      to={`/work/${p.slug}`}
+                      className="stretched-link"
+                      aria-label={`Open ${p.label}`}
+                    />
+                  )}
 
-      {p.slug && <span className="chev" aria-hidden>›</span>}
-    </li>
-  ))}
-</ul>
-      
+                  {p.slug && <span className="chev" aria-hidden>›</span>}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <ProjectsGallery />

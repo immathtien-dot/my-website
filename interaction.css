@@ -114,9 +114,3 @@
     transform: scale(1.02);
     transition: all .3s ease;
   }
-  
-  /* --- Example usage:
-     <h1 class="title fade-in delay-2">Browse everything.</h1>
-     <a class="cta slide-up delay-3" href="#learn">Learn More →</a>
-  --- */
-  

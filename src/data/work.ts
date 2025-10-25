@@ -1,36 +1,50 @@
-export type WorkItem = { name: string; img: string };
+export type WorkItem = { 
+  name: string; 
+  img?: string; 
+  type?: 'image' | 'video';
+  src?: string;
+  poster?: string;
+};
 export type WorkMap = Record<string, { title: string; items: WorkItem[] }>;
 
 export const WORKS: WorkMap = {
-  "animation": {
-    title: "Animation",
+  "projects": {
+    title: "All Projects",
     items: [
-      { name: "Surfrider Foundation", img: "/images/work/animation/1.png" },
-      { name: "Ocean Plastics",       img: "/images/work/animation/2.png" },
-      { name: "Reef Life",            img: "/images/work/animation/3.png" },
-      { name: "Blue Current",         img: "/images/work/animation/4.png" },
-      { name: "Coast Watch",          img: "/images/work/animation/5.png" },
-      { name: "Swell Study",          img: "/images/work/animation/6.png" },
-      { name: "Harbor Lights",        img: "/images/work/animation/7.png" },
-      { name: "Sea Breeze",           img: "/images/work/animation/8.png" },
-      { name: "Foam Lines",           img: "/images/work/animation/9.png" },
-      { name: "After Tide",           img: "/images/work/animation/10.png" }
+      { name: "Video Editing", img: "/work/animation/2.png" },
+      { name: "Graphic Design", img: "/work/animation/4.png" },
+      { name: "Animation Project", 
+        type: "video",
+        src: "/videos/animation.mp4",
+        poster: "/work/animation/1.png"},
+
+      { name: "Collage Video Project", 
+        type: "video",
+        src: "/videos/collage.mp4",
+        poster: "/work/animation/5.png"},
+
+        { name: "Video for quote", type: "video",
+          src: "/videos/meaning.mp4",
+          poster:"/work/animation/6.png" },
+
+      { name: "Coding Menu", type: "video",
+        src: "/videos/menu.mp4",
+        poster:"/work/animation/7.png" },
+
+      
+      { name: "Coding Invitation", type: "video",
+        src: "/videos/invitation.mp4",
+        poster:"/work/animation/8.png" },
+
+      { name: "Vlog Project", 
+        type: "video",
+        src: "/videos/vlog.mp4",
+        poster: "/work/animation/9.png"
+ },
+      { name: "Vfx Project", 
+        type: "video",
+        src: "/videos/vfx.mp4",
+        poster: "/work/animation/10.png" }
     ]
   },
-
-  "music-video": {
-    title: "Music Video",
-    items: [
-      { name: "Studio Session", img: "/images/work/music-video/1.jpg" },
-      // ...add up to 10
-    ]
-  },
-
-  "vfx": {
-    title: "Visual effects (VFX)",
-    items: [
-      { name: "Particle Test", img: "/images/work/vfx/1.jpg" },
-      // ...add up to 10
-    ]
-  }
 };

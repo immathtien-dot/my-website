@@ -6,7 +6,7 @@ import "./about.css";
 import "./projects.css";
 import "./contact.css";
 import "./work.css";
-import WorkGrid from "./data/WorkGrid";
+import WorkGrid from "./data/WorkGrid";  
 
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
