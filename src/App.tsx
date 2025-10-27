@@ -102,7 +102,7 @@ function ProjectsGallery() {
   const items = [
     { src: "./images/projects/p1.png", caption: "Hello, I'm Linsey, a DMA student at SJSU." },
     { src: "./images/projects/p2.png", caption: "Projects from Art 074." },
-    { src: "./images/projects/p3.png", caption: "Projects from Music Video." },
+    { src: "./images/projects/p3.png", caption: "Music Video Project." },
     { src: "./images/projects/p4.png", caption: "Vintage shop poster." },
   ];
   
