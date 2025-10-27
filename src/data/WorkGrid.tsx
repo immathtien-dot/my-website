@@ -7,6 +7,7 @@ export default function WorkGrid() {
   const { slug = "" } = useParams();
   const data = WORKS[slug];
   const [fullScreenVideo, setFullScreenVideo] = useState<{ src: string; name: string; poster?: string } | null>(null);
+  const [fullScreenImage, setFullScreenImage] = useState<{ src: string; name: string } | null>(null);
 
   if (!data) return <main className="work__container"><h1>Not found</h1></main>;
 
@@ -16,6 +17,14 @@ export default function WorkGrid() {
 
   const closeFullScreenVideo = () => {
     setFullScreenVideo(null);
+  };
+
+  const handleImageClick = (src: string, name: string) => {
+    setFullScreenImage({ src, name });
+  };
+
+  const closeFullScreenImage = () => {
+    setFullScreenImage(null);
   };
 
   return (
@@ -29,32 +38,31 @@ export default function WorkGrid() {
             <p className="kicker">PROJECTS</p>
           </div>
           <div className="work__title-section">
-            <h1 className="work__title">See the Big Picture</h1>
+            <h1 className="work__title">My Creative Experience</h1>
             <p className="work__lead">
-              Area turns your data into clear, vibrant visuals that show exactly
-              what's happening in each region.
+            My works are a reflection of how I see and feel the world. Through different projects, I explore how emotion can be translated into visuals and how art becomes a way to connect both the inner and outer worlds.
             </p>
           </div>
         </header>
 
         <div className="work__gallery">
-          <div className="work__featured">
-            <figure className="featured-tile">
-              <img src={data.items[0]?.img} alt={data.items[0]?.name} />
-              <figcaption className="tile__label">{data.items[0]?.name}</figcaption>
-            </figure>
-            <figure className="featured-tile">
-              <img src={data.items[1]?.img} alt={data.items[1]?.name} />
-              <figcaption className="tile__label">{data.items[1]?.name}</figcaption>
-            </figure>
-          </div>
-
         <div className="work__grid">
-          {data.items.slice(2).map((it, i) => (
+          {data.items.map((it, i) => (
             <figure 
               className={`tile ${it.type === 'video' ? 'tile--video' : ''}`} 
               key={i}
-              onClick={() => it.type === 'video' && it.src && handleVideoClick(it.src, it.name, it.poster)}
+              onClick={() => {
+                if (it.type === 'video' && it.src) {
+                  handleVideoClick(it.src, it.name, it.poster);
+                } else if (!it.type) {
+                  // If it has a poster but clicking opens img, use img for fullscreen
+                  const imageToShow = it.poster ? it.img : (it.img || it.poster);
+                  if (imageToShow) {
+                    handleImageClick(imageToShow, it.name);
+                  }
+                }
+              }}
+              style={{ cursor: (it.type === 'video' || it.img || it.poster) ? 'pointer' : 'default' }}
             >
               {it.type === 'video' ? (
                 <video 
@@ -65,7 +73,7 @@ export default function WorkGrid() {
                   preload="metadata"
                 />
               ) : (
-                <img src={it.img} alt={it.name} className="tile__media" />
+                <img src={it.poster || it.img} alt={it.name} className="tile__media" />
               )}
               <figcaption className="tile__label">{it.name}</figcaption>
               {it.type === 'video' && (
@@ -79,6 +87,11 @@ export default function WorkGrid() {
           ))}
         </div>
         </div>
+
+        {/* Copyright Footer */}
+        <footer className="work__footer">
+          <p className="work__copyright">© Linsey Truong</p>
+        </footer>
       </main>
 
       {/* Fullscreen Video Overlay */}
@@ -98,6 +111,24 @@ export default function WorkGrid() {
               Your browser does not support the video tag.
             </video>
             <div className="fullscreen-video-title">{fullScreenVideo.name}</div>
+          </div>
+        </div>
+      )}
+
+      {/* Fullscreen Image Overlay */}
+      {fullScreenImage && (
+        <div className="fullscreen-video-overlay" onClick={closeFullScreenImage}>
+          <div className="fullscreen-video-container" onClick={(e) => e.stopPropagation()}>
+            <button className="fullscreen-video-close" onClick={closeFullScreenImage}>
+              &times;
+            </button>
+            <img 
+              src={fullScreenImage.src}
+              alt={fullScreenImage.name}
+              className="fullscreen-video-player"
+              style={{ objectFit: 'contain' }}
+            />
+            <div className="fullscreen-video-title">{fullScreenImage.name}</div>
           </div>
         </div>
       )}

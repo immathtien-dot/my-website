@@ -11,19 +11,22 @@ export const WORKS: WorkMap = {
   "projects": {
     title: "All Projects",
     items: [
-      { name: "Video Editing", img: "/work/animation/2.png" },
-      { name: "Graphic Design", img: "/work/animation/4.png" },
+      { name: "Art 074", 
+        img: "/work/animation/2.png" },
+      { name: "Branding", 
+        img: "/work/animation/3.png",
+        poster: "/images/projects/p1.png" },
       { name: "Animation Project", 
         type: "video",
         src: "/videos/animation.mp4",
         poster: "/work/animation/1.png"},
 
-      { name: "Collage Video Project", 
+      { name: "Music Video Project", 
         type: "video",
         src: "/videos/collage.mp4",
         poster: "/work/animation/5.png"},
 
-        { name: "Video for quote", type: "video",
+        { name: "Inspirational Video Quotes", type: "video",
           src: "/videos/meaning.mp4",
           poster:"/work/animation/6.png" },
 

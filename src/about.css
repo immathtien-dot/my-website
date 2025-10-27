@@ -45,6 +45,14 @@ html { scroll-behavior: smooth; }
 
 .card__icon { font-size:20px; margin-bottom:8px; }
 .card h3 { font-size:16px; margin:0 0 6px; }
+.card__subtitle { 
+  font-size:14px; 
+  color:#888; 
+  margin-bottom:8px; 
+  font-weight:500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
 .card p { font-size:14px; color:#565; }
 
 .about__image img {

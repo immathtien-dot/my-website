@@ -87,10 +87,9 @@ function ContactSection() {
         <div className="contact__connect">
           <h2 className="contact__title">Connect with me</h2>
           <p className="contact__description">
-            Schedule a quick call to learn how Area can turn your regional data into a powerful advantage.
-          </p>
-          <a className="contact__cta" href="#contact">
-            Say Hello →
+          Interested in collaborating or learning more about my projects? Let’s create something together.          </p>
+          <a className="contact__cta" href="mailto:immathtien@gmail.com?subject=Hello from Linsey's Website">
+            Let's Play →
           </a>
         </div>
       </div>
@@ -188,24 +187,24 @@ export default function App() {
 
           <div className="about__grid">
             <article className="card">
-              <div className="card__icon">🏴</div>
-              <h3>Amplify Insights</h3>
-              <p>Unlock data-driven decisions with analytics.</p>
+              <div className="card__icon">🎨</div>
+              <h3>Inspire Emotion</h3>
+              <p>Create visuals translating thoughts and emotions into designs.</p>
             </article>
             <article className="card">
-              <div className="card__icon">🌐</div>
-              <h3>Control Your Global Presence</h3>
-              <p>Manage satellite offices consistently.</p>
+              <div className="card__icon">🎀</div>
+              <h3>Vision</h3>
+              <p>Every project begins by listening to the stories and ideas of clients.</p>
             </article>
             <article className="card">
-              <div className="card__icon">🗣️</div>
-              <h3>Remove Language Barriers</h3>
-              <p>Built-in localization for clarity.</p>
+              <div className="card__icon">💻</div>
+              <h3>Craft the Experience</h3>
+              <p>Turning imagination into design through motion and thoughtful details.</p>
             </article>
             <article className="card">
               <div className="card__icon">📈</div>
-              <h3>Visualize Growth</h3>
-              <p>Precise visual reports across regions.</p>
+              <h3>Reflect</h3>
+              <p>Every piece expresses a different mood, tone through composition and color.</p>
             </article>
           </div>
 
@@ -219,10 +218,9 @@ export default function App() {
         <div className="projects__container">
           <div className="projects__left">
             <h3 className="projects__subtitle">PROJECT<span>S</span></h3>
-            <h2 className="projects__title">See the Big Picture</h2>
+            <h2 className="projects__title">My Creative Experience</h2>
             <p className="projects__lead">
-              Area turns your data into clear, vibrant visuals that show exactly
-              what's happening in each region.
+            My works are a reflection of how I see and feel the world. Through different projects, I explore how emotion can be translated into visuals and how art becomes a way to connect both the inner and outer worlds.
             </p>
 
             <ul className="projects__list">
