@@ -100,10 +100,10 @@ function ContactSection() {
 <a className="nav-link" href="#projects">Projects</a>
 function ProjectsGallery() {
   const items = [
-    { src: "./images/projects/p1.png", caption: "Cylindrical forms — soft studio lighting." },
-    { src: "./images/projects/p2.png", caption: "Minimal set design with warm palette." },
-    { src: "./images/projects/p3.png", caption: "Macro texture study on matte surface." },
-    { src: "./images/projects/p4.png", caption: "Product stack with gentle rim light." },
+    { src: "./images/projects/p1.png", caption: "Hello, I'm Linsey, a DMA student at SJSU." },
+    { src: "./images/projects/p2.png", caption: "Projects from Art 074." },
+    { src: "./images/projects/p3.png", caption: "Projects from Music Video." },
+    { src: "./images/projects/p4.png", caption: "Vintage shop poster." },
   ];
   
   const [idx, setIdx] = useState(0);
